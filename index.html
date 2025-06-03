@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Happy Birthday, Baby Girl</title>
+  <style>
+    /* === BASIC RESET & LAYOUT === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #ffffff; /* white background */
+      color: #333333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #8e44ad; /* purple heading */
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === RESPONSIVE SPOTIFY PLAYER === */
+    /* .spotify-container {
+      width: 100%;
+      max-width: 300px;  
+      margin: 20px 0;
+      position: relative;
+      padding-bottom: calc(380 / 300 * 100%); 
+      height: 0;
+      z-index: 1;
+    } */
+     .spotify-container {
+      margin: 20px 0;
+      z-index: 1;
+      position: relative;
+    }
+   
+
+    /* === IMAGE GALLERY === */
+    .gallery-container {
+      width: 100%;
+      max-width: 600px; /* cap the gallery width */
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    #gallery-img {
+      width: 100%;      /* fills container */
+      max-width: 600px; /* never exceed 600px */
+      height: auto;     /* maintain aspect ratio */
+      border: 5px solid #e74c3c; /* red border */
+      border-radius: 10px;
+      cursor: pointer;
+      transition: opacity 0.4s ease-in-out;
+      display: block;
+      margin: 0 auto;
+    }
+    .gallery-instruction {
+      margin-top: 10px;
+      font-size: 0.9em;
+      color: #555555;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === COUNTER === */
+    .counter-container {
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    #time-together {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #8e44ad; /* purple text */
+    }
+
+    /* === LOVE LETTER === */
+    .letter-container {
+      width: 100%;
+      max-width: 700px;
+      margin: 30px 0;
+      background: #f9f0ff;
+      border: 2px solid #8e44ad;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
+
+    .letter-container p {
+      margin-bottom: 1em;
+      font-size: 1.1em;
+      color: #333333;
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.9em;
+      color: #777777;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* === HEARTS OVERLAY CONTAINER === */
+    .hearts-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 24px;
+      opacity: 1;
+      animation: floatUp 4s ease-out forwards;
+      user-select: none;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- === HEARTS OVERLAY === -->
+  <div class="hearts-container"></div>
+
+  <h1>Happy Birthday, Baby Girl 🎂❤️</h1>
+
+  <!-- === RESPONSIVE SPOTIFY EMBED === -->
+  <div class="spotify-container">
+    <iframe
+      src="https://open.spotify.com/embed/playlist/2tUeBgBKzOeLSGuMCU46dL?utm_source=generator"
+      allow="encrypted-media"
+      width="600"
+      height="380"
+      frameborder="0"
+      allowtransparency="true"
+    ></iframe>
+  </div>
+
+  <!-- === IMAGE GALLERY (NEXT-CLICK LOGIC) === -->
+  <div class="gallery-container">
+    <img
+      id="gallery-img"
+      src="https://i.imgur.com/hKk6YRO.jpeg"
+      alt="Click to see next memory"
+    />
+    <div class="gallery-instruction">Click the photo to see our next memory </div>
+  </div>
+
+  <!-- === LIVE COUNTER === -->
+  <div class="counter-container">
+    <div>We’ve been together for:</div>
+    <div id="time-together">Loading...</div>
+  </div>
+
+  <!-- === BIRTHDAY LOVE LETTER === -->
+  <div class="letter-container">
+    <p>To my love, (Meri Jaan)</p>
+    <p>
+      Happiest of birthdays to my dearest love. I’m thankful for this day because you exist which makes me feel alive.
+    </p>
+    <p>
+      I love how your smile lights up a room, how you always know the perfect thing to say when I need it most, or when you think I need to hear it. You inspire me to be the best version of myself, and I’m endlessly grateful for every second we share.
+    </p>
+    <p>
+      On this special day, I want you to know how deeply I adore you and how excited I am for all the birthdays we’ll celebrate together. May your day be filled with joy, laughter, and all the love your heart can hold. And thank you, the moon in my life.
+    </p>
+    <p>
+      Forever yours,<br/>
+      <em>[Amos Auguste]</em>
+    </p>
+  </div>
+
+  <footer>Bubba ❤️</footer>
+
+  <script>
+    // === CONFIGURATION ===
+    const relationshipStart = new Date('2024-02-14T14:30:00');
+
+    const galleryImages = [
+      "https://i.imgur.com/hKk6YRO.jpeg",
+      "https://i.imgur.com/SC37C6f.jpeg",
+      "https://i.imgur.com/XAe9Akb.jpeg",
+      "https://i.imgur.com/QKl4GAh.jpeg",
+      "https://i.imgur.com/13tYYd6.jpeg",
+      "https://i.imgur.com/trbLPSt.jpeg",
+      "https://i.imgur.com/Y4IhUv6.jpeg",
+      "https://i.imgur.com/M6xrtxQ.jpeg",
+      "https://i.imgur.com/WDkIv4x.jpeg",
+      "https://i.imgur.com/NtzEYLq.jpeg"
+    ];
+
+    // === IMAGE GALLERY LOGIC: “Next” rather than random ===
+    const imgElement = document.getElementById('gallery-img');
+    let currentIndex = 0;
+    imgElement.addEventListener('click', () => {
+      imgElement.style.opacity = 0;
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % galleryImages.length;
+        imgElement.src = galleryImages[currentIndex];
+        imgElement.style.opacity = 1;
+      }, 300);
+    });
+
+    // Preload all gallery images
+    galleryImages.forEach(src => {
+      const pre = new Image();
+      pre.src = src;
+    });
+
+    // === LIVE COUNTER LOGIC ===
+    const counterEl = document.getElementById('time-together');
+    function updateCounter() {
+      const now = new Date();
+      let diff = now - relationshipStart; // milliseconds difference
+      const secondsTotal = Math.floor(diff / 1000);
+      const days = Math.floor(secondsTotal / (3600 * 24));
+      const hours = Math.floor((secondsTotal % (3600 * 24)) / 3600);
+      const minutes = Math.floor((secondsTotal % 3600) / 60);
+      const seconds = Math.floor(secondsTotal % 60);
+      counterEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    }
+    updateCounter();
+    setInterval(updateCounter, 1000);
+
+    // === HEARTS ANIMATION LOGIC ===
+    const heartsContainer = document.querySelector('.hearts-container');
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.className = 'heart';
+      heart.innerText = '❤️';
+      const xPos = Math.random() * 100;
+      heart.style.left = xPos + 'vw';
+      heart.style.top = '100vh';
+      const size = 15 + Math.random() * 15;
+      heart.style.fontSize = size + 'px';
+      heart.style.color = Math.random() < 0.5 ? '#e74c3c' : '#8e44ad';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 4000);
+    }
+    setInterval(createHeart, 400);
+  </script>
+</body>
+</html>
